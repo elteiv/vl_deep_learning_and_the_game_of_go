@@ -51,3 +51,20 @@ score = model.evaluate(X_test, Y_test, verbose=0)
 print('Test loss:', score[0])
 print('Test accuracy:', score[1])
 # end::mcts_go_cnn_eval[]
+
+test_board = np.array([
+    0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 1, -1, 1, -1, 0, 0, 0, 0,
+    0, 1, -1, 1, -1, 0, 0, 0, 0,
+    0, 0, 1, -1, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0,
+]).reshape(1, size, size,1)
+
+
+prediction = model.predict(test_board)
+
+print(f'Prediction  = {prediction}')
